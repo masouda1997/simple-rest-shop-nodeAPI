@@ -8,8 +8,13 @@ router.get('/' , (req,res,next)=>{
 })
 
 router.post('/' , (req,res,next)=>{
+   const order = {
+      orderId : req.body.orderId,
+      quantity: req.body.quantity
+   }
    res.status(201).json({
-      msg:'order was created'
+      msg:'order was created',
+      order:order
    })
 })
 
@@ -19,6 +24,7 @@ router.get('/:orderId' , (req,res,next)=>{
       orderId : req.params.orderId
    })
 })
+
 router.delete('/:orderId' , (req,res,next)=>{
    res.status(200).json({
       msg:'order deleted',

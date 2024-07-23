@@ -8,7 +8,12 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-	res.status(201).json({ msg: "POST request to /products" });
+   const product = {
+      name:req.body.name,
+      model:req.body.model,
+      qtNo:req.body.quantity,
+   }
+	res.status(201).json({ msg: "POST request to /products" , product:product });
 });
 
 router.get('/:productId',(req,res,next)=>{
